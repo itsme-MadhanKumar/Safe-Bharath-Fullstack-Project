@@ -1,0 +1,208 @@
+/* =============================================================Add Money Pop up css */
+.popup-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 450px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.popup-box h2 {
+  margin-bottom: 15px;
+}
+
+.conditions ul {
+  padding-left: 20px;
+  margin: 10px 0;
+}
+
+.otp-section {
+  margin-top: 20px;
+}
+
+.otp-section input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.processing-msg {
+  margin: 20px 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-buttons button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.popup-buttons button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.popup-buttons button:last-child {
+  background-color: #ccc;
+}
+
+/* ============================================================================= */
+/* =============================================================Send Money Pop up css */
+.sendmoney-popup-container {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.sendmoney-popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  width: 450px;
+  text-align: left;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.sendmoney-popup-box h2 {
+  margin-bottom: 15px;
+}
+
+.sendmoney-otp-section {
+  margin-top: 20px;
+}
+
+.sendmoney-otp-section input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.sendmoney-processing-msg {
+  margin: 20px 0 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sendmoney-popup-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.sendmoney-popup-buttons button {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sendmoney-popup-buttons button:first-child {
+  background-color: #007bff;
+  color: white;
+}
+
+.sendmoney-popup-buttons button:last-child {
+  background-color: #ccc;
+}
+/* ============================================================================= PAY LOAN CSS*/
+#Pay-Loan-box {
+  /* max-width: 500px; */
+  margin: 0 auto;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#Pay-Loan-box h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.bank-logo {
+  width: 120px;
+  margin-bottom: 20px;
+}
+
+.search-section, .payment-section {
+  margin: 20px 0;
+}
+
+.search-section input, .payment-section input {
+  padding: 10px;
+  width: 70%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  margin-top: 8px;
+}
+
+.search-section button, .payment-section button {
+  padding: 10px 20px;
+  background: #0078D7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.search-section button:hover, .payment-section button:hover {
+  background: #005bb5;
+}
+
+.loan-details {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.loan-details p {
+  margin: 8px 0;
+  font-size: 15px;
+}
+
+/* #loanMessage {
+  margin-top: 20px;
+  color: rgb(255, 17, 0);
+  font-weight: bold;
+} */
+
+

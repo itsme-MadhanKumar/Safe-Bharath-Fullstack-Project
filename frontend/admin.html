@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="assets/css/admin.css">
+    <link rel="stylesheet" href="assets/css/notification.css">
+    <link rel="stylesheet" href="assets/css/payment.css">
+    <link rel="stylesheet" href="assets/css/loan.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div id="profile-container">
+                <img id="profile-pic" width="100" height="100">
+                <h3 id="user-name"></h3>
+            </div>
+            <ul>
+                <li><button id="dashboard-btn">Dashboard</button></li>
+                <li><button id="user-management-btn">Add Money</button></li>
+                <li><button id="transaction-management-btn">Send Money</button></li>
+                <li><button id="profile-management-btn">Transaction History</button></li>
+                <li><button id="settings-btn">Apply Loan</button></li>
+                <li><button id="check-status-btn">Loan Status Check</button></li>
+                <li><button id="pay-loan-btn">Pay Laon</button></li>
+                <li><button id="edit-profile-btn">Edit Profile</button></li>
+                <li><button id="Notification-btn">Notification <span id="notification-count"class="badge">0</span></button></li>
+                <li><button id="logout-btn">Log out</button></li>
+            </ul>
+        </div>
+
+        <!-- =======================================Dash Board Start======================================= -->
+        <div class="content">
+            <div id="dashboard" class="box">
+                <h2>Dashboard</h2>
+                <div id="server-error-dashboard"
+                    style="display:none; background-color: #f8d7da; color: #721c24; padding: 10px; margin: 10px auto; text-align: center; font-weight: bold; border: 1px solid #f5c6cb; border-radius: 5px; max-width: 500px;">
+                    🚨 Try to reach server...
+                </div>
+                <div id="server-online-dashboard"
+                    style="display:none; background-color: #d4edda; color: #155724; padding: 10px; margin: 10px auto; text-align: center; font-weight: bold; border: 1px solid #c3e6cb; border-radius: 5px; max-width: 500px;">
+                    ✅ Server is back online!
+                </div>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <p style="text-align: center;">Welcome to the Dashboard.</p>
+                <!-- <div class="top-bar"> -->
+                <div class="datetime-container" id="date-time-dashboard">
+                    <span id="date-time"></span>
+                </div>
+                <!-- </div> -->
+                <div class="dashboard-marquee">
+                    <p>🔒 Never share your Aadhar number, password, or OTP with anyone. Avoid using public Wi-Fi for
+                        transactions. Regularly update your payment password for added security. Stay safe, bank smart!
+                        🔒</p>
+                </div>
+                <!-- ------------------------------dashboard html -->
+                <div id="dashboard-section" class="section">
+                    <div id="profile-container-dashboard">
+                        <img id="profile-pic-dashboard" width="100" height="100">
+                        <h3 id="user-name-dashboard"></h3>
+                    </div>
+                    <br>
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <p><strong>Full Name:</strong> <span id="fullname"></span></p>
+                        </div>
+                        <div class="dashboard-item">
+                            <p><strong>Mobile:</strong> <span id="mobile"></span></p>
+                        </div>
+                    </div>
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <p><strong>Aadhar:</strong> <span id="aadhar"></span></p>
+                        </div>
+                        <div class="dashboard-item">
+                            <p><strong>PAN:</strong> <span id="pan"></span></p>
+                        </div>
+                    </div>
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <p><strong>Address:</strong> <span id="address"></span></p>
+                        </div>
+                        <div class="dashboard-item">
+                            <p><strong>Email:</strong> <span id="email"></span></p>
+                        </div>
+                    </div>
+                    <div class="dashboard-row">
+                        <div class="dashboard-item">
+                            <p><strong>Status:</strong> <span id="status"></span></p>
+                        </div>
+                        <div class="dashboard-item">
+                            <p><strong>Balance:</strong> ₹<span id="balance"></span></p>
+                        </div>
+                    </div>
+                    <div class="security-alert-box">
+                        <div class="alert-icon">🔒</div>
+                        <div class="alert-message">
+                            <strong>Security Tip:</strong> Never share your Aadhar number, password, or OTP with
+                            anyone.<br>
+                            Avoid public Wi-Fi for transactions. Regularly update your payment password
+                            <span class="highlight">Stay safe, bank smart!</span>
+                        </div>
+                    </div>
+                    <p style="text-align: center;">Note : It is Advised Properly logging out from this device ones done
+                        !</p>
+                </div>
+            </div>
+
+
+            <!-- =======================================Dash Board End ======================================= -->
+
+            <!-- =======================================Add money Start======================================= -->
+            <div id="user-management" class="box" style="display: none;">
+                <h2>Add your Money to the Wallet here</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <div id="server-error-sendMoney"
+                    style="display:none; background-color: #f8d7da; color: #721c24; padding: 10px; margin: 10px auto; text-align: center; font-weight: bold; border: 1px solid #f5c6cb; border-radius: 5px; max-width: 500px;">
+                    🚨 Try to reach server...
+                </div>
+                <p style="text-align: center;">Note : If you Lost your Money while Server down 🛜, don't worry your
+                    money will be credited once server is up !</p>
+
+                <div class="custom-alert">
+                    <div class="alert-icon">🔒</div>
+                    <div class="alert-message">
+                        <strong>Personal Tip:</strong> It is advised not to perform a transaction when the server shows
+                        a downtime message or something else!<br>
+                        <span class="highlight">Stay safe, bank smart!</span>
+                    </div>
+                </div>
+                <!-- Add Money Form Section -->
+                <div class="dashboard-row">
+                    <div class="dashboard-item">
+                        <p><strong>Aadhar Number:</strong></p>
+                        <input type="text" id="addmoney-aadhar" placeholder="Enter your Aadhar number">
+                    </div>
+                    <div class="dashboard-item">
+                        <p><strong>PAN Number:</strong></p>
+                        <input type="text" id="addmoney-pan" placeholder="Enter your PAN number">
+                    </div>
+                </div>
+                <div class="dashboard-row">
+                    <div class="dashboard-item">
+                        <p><strong>Gmail ID:</strong></p>
+                        <input type="email" id="addmoney-gmail" placeholder="Enter your Gmail ID">
+                    </div>
+                    <div class="dashboard-item">
+                        <p><strong>Payment Password:</strong></p>
+                        <input type="password" id="addmoney-password" placeholder="Enter Payment Password">
+                        <p>
+                            Generate your Payment Password here
+                            <a href="#" class="small-button" onclick="goToGeneratePassword()">Generate</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="dashboard-row" style="justify-content: center;">
+                    <div class="dashboard-item" style="text-align: center; width: 100%;">
+                        <p><strong>Amount :</strong></p>
+                        <input type="email" id="addmoney" placeholder="Enter your Amount in Indian Rupees">
+                    </div>
+                </div>
+                <div class="dashboard-row" style="justify-content: center;">
+                    <div class="dashboard-item" style="text-align: center; width: 100%;">
+                        <button id="addmoney-submit-btn" onclick="showPaymentPopup()">Submit</button>
+                        <!-- Message display -->
+                        <div class="dashboard-row" style="justify-content: center;">
+                            <div class="dashboard-item" style="text-align: center; width: 100%;">
+                                <p id="addmoney-status-message" style="color: red; font-weight: bold;"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ---------------------------------------------- -->
+                <p style="text-align: center;">Note : This System is fully Automatic , No need of Human ,if you face any
+                    Problem , Kindly contact Us .</p>
+                <div class="security-alert-box">
+                    <div class="alert-icon">🔒</div>
+                    <div class="alert-message">
+                        <strong>Security Tip:</strong> Never share your Aadhar number, password, or OTP with anyone.<br>
+                        Avoid public Wi-Fi for transactions. Regularly update your payment password.<br>
+                        <span class="highlight">Stay safe, bank smart!</span>
+                    </div>
+                </div>
+            </div>
+            <!-- =======================================Add Money End ======================================= -->
+
+
+
+            <!-- =======================================Send Money Start======================================= -->
+            <div id="transaction-management" class="box" style="display: none;">
+                <h2>Send Money to User</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <p>Manage transactions here.</p>
+                <div id="server-error-sendMoney"
+                    style="display:none; background-color: #f8d7da; color: #721c24; padding: 10px; margin: 10px auto; text-align: center; font-weight: bold; border: 1px solid #f5c6cb; border-radius: 5px; max-width: 500px;">
+                    🚨 Try to reach server...
+                </div>
+
+
+                <div class="security-alert-box">
+                    <div class="alert-icon">🔒</div>
+                    <div class="alert-message">
+                        <strong>Personal Tip:</strong> Please enter your recipient's Aadhaar number carefully to avoid
+                        any errors.<br>
+                        If any user is not found and money is deducted, Don't worry , money will be credited back to
+                        your account within 24 hours.<br>
+                        <span class="highlight">Stay safe, bank smart!</span>
+                    </div>
+                </div>
+
+                <p style="text-align: center;">Note : If you Lost your Money while Server down 🛜, don't worry your
+                    money will be credited once server is up !</p>
+
+
+                <!-- Send Money Form Section -->
+                <div class="dashboard-row">
+                    <div class="dashboard-item">
+                        <p><strong>Receiver Aadhar Number:</strong></p>
+                        <input type="text" id="sendmoney-aadhar-Reciever" placeholder="Enter Receiver Aadhar number">
+                    </div>
+                    <div class="dashboard-item">
+                        <p><strong>Your PAN Number:</strong></p>
+                        <input type="text" id="sendmoney-pan-yours" placeholder="Enter Your PAN number">
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="dashboard-item">
+                        <p><strong>Your Login Password</strong></p>
+                        <input type="text" id="sendmoney-gmail-yours" placeholder="Enter your Login Password">
+                    </div>
+                    <div class="dashboard-item">
+                        <p><strong>Your Payment Password:</strong></p>
+                        <input type="password" id="sendmoney-password-yours" placeholder="Enter your Payment Password">
+                        <p>
+                            Generate your Payment Password here
+                            <a href="#" class="small-button" onclick="goToGeneratePassword()">Generate</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="dashboard-row" style="justify-content: center;">
+                    <div class="dashboard-item" style="text-align: center; width: 100%;">
+                        <p><strong>Amount to send :</strong></p>
+                        <input type="text" id="sendmoney-yours" placeholder="Enter your Amount in Indian Rupees">
+                    </div>
+                </div>
+
+                <div class="dashboard-row" style="justify-content: center;">
+                    <div class="dashboard-item" style="text-align: center; width: 100%;">
+                        <button id="sendmoney-submit-btn">Submit</button>
+
+                        <!-- Message display -->
+                        <div class="dashboard-row" style="justify-content: center;">
+                            <div class="dashboard-item" style="text-align: center; width: 100%;">
+                                <p id="sendmoney-status-message" style="color: red; font-weight: bold;"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- =--------------------------------------------------- -->
+                <p style="text-align: center;">Note : This System is fully Automatic , No need of Human ,if you face any
+                    Problem , Kindly contact Us .</p>
+
+                <div class="fancy-alert-box">
+                    <div class="fancy-icon">🔒</div>
+                    <div class="fancy-content">
+                        <h3>Heads Up!</h3>
+                        <p>
+                            Now you can apply for <strong>Education Loan</strong> in our Banking Website.
+                        </p>
+                        <p>
+                            Note : The user must be <strong>Student</strong> holding this Account (not him/her Parents
+                            can apply for this loan).<br>
+                            The Student can apply for <strong>UG ,PG, ABROAD</strong> education loan in our website.
+                        </p>
+                        <div class="fancy-footer">✨ Stay safe, bank smart!</div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- =======================================Send Money End ======================================= -->
+
+
+            <!-- =======================================Transaction Start======================================= -->
+            <div id="profile-management" class="box">
+                <h2>Transaction History</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <div class="custom-alert">
+                    <div class="alert-icon">🔒</div>
+                    <div class="alert-message">
+                        <strong>Personal Tip:</strong>If your are not able to find your recent Transaction History ,
+                        Kindly do refresh this page every 15 seconds !, you can also find your Transaction History using
+                        UTR ID<br>
+                        <span class="highlight">Stay safe, bank smart!</span>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div style="margin-bottom: 15px;">
+                    <input type="text" id="utrSearch" placeholder="Enter UTR ID" style="padding: 8px; width: 250px;">
+                    <button id="searchBtn" style="padding: 8px 12px;">Search</button>
+                    <button id="clearSearchBtn" style="padding: 8px 12px;">Clear</button>
+                </div>
+                <!-- Search Bar -->
+                <table id="transactionsTable" border="1">
+                    <thead>
+                        <tr>
+                            <th>UTR ID</th>
+                            <th>Sender</th>
+                            <th>Receiver</th>
+                            <th>Credited</th>
+                            <th>Debited</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <!-- <th>Balance</th> -->
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <!-- =======================================Transaction END ======================================= -->
+
+
+            <!-- =======================================Apply Loan Start======================================= -->
+            <!-- Apply Loan Section -->
+            <div id="settings" class="loan-container box" style="display: none;">
+                <h2>Apply for Loan</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+
+                <div class="loan-type-selector">
+                    <button onclick="showLoanForm('ug')">UG Loan</button>
+                    <button onclick="showLoanForm('pg')">PG Loan</button>
+                    <button onclick="showLoanForm('abroad')">Abroad Loan</button>
+                </div>
+
+                <!-- Already applied message box (centered and hidden by default) -->
+                <div id="already-applied-message"
+                    style="display: none; color: red; margin-top: 20px; text-align: center; font-weight: bold; font-size: 16px;">
+                    You have already applied for this loan. Please wait for verification.
+                </div>
+
+                <div
+                    style="display: flex; align-items: center; background-color: #fff3cd; border-left: 8px solid #07d6ff; padding: 20px; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 90%; margin: 30px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                    <div style="font-size: 36px; margin-right: 20px;">⚠️</div>
+                    <div>
+                        <div style="font-weight: 700; font-size: 18px; color: #048513; margin-bottom: 8px;">Friendly
+                            Reminder</div>
+                        <div style="font-size: 15px; color: #856404;">
+                            A student can apply for <strong>only one loan at a time</strong>. Once the loan form is
+                            submitted, <strong>they cannot apply for another loan</strong> unless the previous one is
+                            deleted.<br><br>
+                            The loan must be applied <strong>only by the student holding the account</strong>.
+                            <strong>Parents or guardians are not allowed</strong> to apply on behalf of the
+                            student.<br><br>
+                            Students can apply for <strong>UG, PG, or Abroad Education Loans</strong> through our
+                            website.<br><br>
+                            After submitting a loan application, a <strong>unique Loan ID</strong> will be generated.
+                            You can track your application by clicking on <strong>"Loan Status"</strong>.<br><br>
+
+                            <span style="font-weight: bold; color: #a94442;">Stay safe. Bank smart. 👍</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- UG Loan Form -->
+                <form id="ug-loan-form" class="loan-form" style="display: none;">
+                    <h3>UG Education Loan Application</h3>
+                    <label for="name">Name (As per 10th Mark Sheet)</label>
+                    <input id="name" type="text" placeholder="Enter your full name">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" placeholder="Enter your age">
+                    <label for="dob">DOB</label>
+                    <input id="dob" type="date" placeholder="Enter your date of birth">
+                    <label for="tenth-percentage">10th Grade Percentage</label>
+                    <input id="tenth-percentage" type="text" placeholder="Enter your 10th grade percentage">
+                    <label for="twelfth-percentage">12th Grade Percentage</label>
+                    <input id="twelfth-percentage" type="text" placeholder="Enter your 12th grade percentage">
+                    <label for="university-name">College/University Name</label>
+                    <input id="university-name" type="text" placeholder="Enter your college/university name">
+                    <label for="course-name">Course Name</label>
+                    <input id="course-name" type="text" placeholder="Enter your course name">
+                    <label for="course-duration">Course Duration</label>
+                    <input id="course-duration" type="text" placeholder="Enter your course duration">
+                    <label for="counseling-code">UGC/AICTE Counseling Code</label>
+                    <input id="counseling-code" type="text" placeholder="Enter the counseling code">
+                    <label for="aadhaar-card">Aadhaar Card</label>
+                    <input id="aadhaar-card" type="text" placeholder="Enter your Aadhaar number">
+                    <label for="pan-card">PAN Card (Student or Parent/Guardian)</label>
+                    <input id="pan-card" type="text" placeholder="Enter your PAN card number">
+                    <label for="father-income">Annual Income of Father</label>
+                    <input id="father-income" type="text" placeholder="Enter the annual income">
+                    <label for="collateral-documents">Collateral Documents</label>
+                    <input id="collateral-documents-ug" type="file" name="collateralDocuments" multiple>
+                    <label for="loan-amount">Loan Amount Needed</label>
+                    <input id="loan-amount" type="text" placeholder="Enter the loan amount needed">
+                    <!-- Message display -->
+                    <div class="pulse-alert-box-ug" style="display: none;">
+                        <p id="message-loan-ug">fgfgfg</p>
+                    </div>
+                    <div class="loan-submit-center">
+                        <button type="submit" class="loan-submit-btn">Submit</button>
+                    </div>
+                </form>
+
+                <!-- PG Loan Form -->
+                <form id="pg-loan-form" class="loan-form" style="display: none;">
+                    <h3>PG Education Loan Application</h3>
+                    <label for="pg-name">Name (As per 10th Mark Sheet)</label>
+                    <input id="pg-name" type="text" placeholder="Enter your full name">
+                    <label for="pg-age">Age</label>
+                    <input id="pg-age" type="number" placeholder="Enter your age">
+                    <label for="pg-dob">DOB</label>
+                    <input id="pg-dob" type="date" placeholder="Enter your date of birth">
+                    <label for="pg-tenth-percentage">10th Grade Percentage</label>
+                    <input id="pg-tenth-percentage" type="text" placeholder="Enter your 10th grade percentage">
+                    <label for="pg-twelfth-percentage">12th Grade Percentage</label>
+                    <input id="pg-twelfth-percentage" type="text" placeholder="Enter your 12th grade percentage">
+                    <label for="pg-cgpa">Final CGPA</label>
+                    <input id="pg-cgpa" type="text" placeholder="Enter your final CGPA">
+                    <label for="pg-university-name">College/University Name</label>
+                    <input id="pg-university-name" type="text" placeholder="Enter your college/university name">
+                    <label for="pg-course-name">Course Name</label>
+                    <input id="pg-course-name" type="text" placeholder="Enter your course name">
+                    <label for="pg-course-duration">Course Duration</label>
+                    <input id="pg-course-duration" type="text" placeholder="Enter your course duration">
+                    <label for="pg-counseling-code">UGC/AICTE Counseling Code</label>
+                    <input id="pg-counseling-code" type="text" placeholder="Enter the counseling code">
+                    <label for="pg-aadhaar-card">Aadhaar Card</label>
+                    <input id="pg-aadhaar-card" type="text" placeholder="Enter your Aadhaar number">
+                    <label for="pg-pan-card">PAN Card (Student)</label>
+                    <input id="pg-pan-card" type="text" placeholder="Enter your PAN card number">
+                    <label for="pg-father-income">Annual Income of Father</label>
+                    <input id="pg-father-income" type="text" placeholder="Enter the annual income">
+                    <label for="collateral-documents">Collateral Documents</label>
+                    <input id="collateral-documents-pg" type="file" name="collateralDocuments" multiple>
+                    <label for="pg-loan-amount">Loan Amount Needed</label>
+                    <input id="pg-loan-amount" type="text" placeholder="Enter the loan amount needed">
+                    <!-- Message display -->
+                    <div class="pulse-alert-box-pg" style="display: none;">
+                        <p id="message-loan-pg">🚨 Server error! Try again later.</p>
+                    </div>
+                    <div class="loan-submit-center">
+                        <button type="submit" class="loan-submit-btn">Submit</button>
+                    </div>
+                </form>
+
+                <!-- Abroad Loan Form -->
+                <form id="abroad-loan-form" class="loan-form" style="display: none;">
+                    <h3>Abroad Education Loan Application</h3>
+                    <label for="abroad-name">Name (As per 10th Mark Sheet)</label>
+                    <input id="abroad-name" type="text" placeholder="Enter your full name">
+                    <label for="father-name">Father Name</label>
+                    <input id="father-name" type="text" placeholder="Enter your father's name">
+                    <label for="mother-name">Mother Name</label>
+                    <input id="mother-name" type="text" placeholder="Enter your mother's name">
+                    <label for="community">Community</label>
+                    <input id="community" type="text" placeholder="Enter your community">
+                    <label for="abroad-age">Age</label>
+                    <input id="abroad-age" type="number" placeholder="Enter your age">
+                    <label for="abroad-dob">DOB</label>
+                    <input id="abroad-dob" type="date" placeholder="Enter your date of birth">
+                    <label for="abroad-tenth-percentage">10th Grade Percentage</label>
+                    <input id="abroad-tenth-percentage" type="text" placeholder="Enter your 10th grade percentage">
+                    <label for="abroad-twelfth-percentage">12th Grade Percentage</label>
+                    <input id="abroad-twelfth-percentage" type="text" placeholder="Enter your 12th grade percentage">
+                    <label for="abroad-ug-pg">Applying for UG or PG</label>
+                    <input id="abroad-ug-pg" type="text" placeholder="Enter UG or PG">
+                    <label for="university-name-abroad">University Name</label>
+                    <input id="university-name-abroad" type="text" placeholder="Enter university name">
+                    <label for="course-name-abroad">Course Name</label>
+                    <input id="course-name-abroad" type="text" placeholder="Enter course name">
+                    <label for="course-duration-abroad">Course Duration</label>
+                    <input id="course-duration-abroad" type="text" placeholder="Enter course duration">
+                    <label for="aadhaar-card-abroad">Aadhaar Card</label>
+                    <input id="aadhaar-card-abroad" type="text" placeholder="Enter Aadhaar number">
+                    <label for="pan-card-abroad">PAN Card (Student)</label>
+                    <input id="pan-card-abroad" type="text" placeholder="Enter PAN card number">
+                    <label for="father-income-abroad">Annual Income of Father</label>
+                    <input id="father-income-abroad" type="text" placeholder="Enter father's annual income">
+                    <label for="collateral-documents">Collateral Documents</label>
+                    <input id="collateral-documents-abroad" type="file" name="collateralDocuments" multiple>
+                    <label for="travel-expenses">Travel & Living Expenses Estimate</label>
+                    <input id="travel-expenses" type="text" placeholder="Enter travel & living expenses">
+                    <label for="loan-amount-abroad">Loan Amount Needed</label>
+                    <input id="loan-amount-abroad" type="text" placeholder="Enter loan amount needed">
+                    <!-- Message display -->
+                    <div class="pulse-alert-box-abroad" style="display: none;">
+                        <p id="message-loan-abroad"></p>
+                    </div>
+                    <div class="loan-submit-center">
+                        <!-- Example button to trigger it -->
+                        <button type="submit" class="loan-submit-btn">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <!-- =======================================Apply Loan END ======================================= -->
+
+
+
+            <!-- ======================================= Check Loan  Start ======================================= -->
+            <div id="check-loan-status-box" class="box" style="display: none;">
+                <h2>Check Loan Status</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <div id="loan-status-list" class="loan-status-container"></div>
+              </div>                     
+            <!-- =======================================Check Loan END ======================================= -->
+
+
+
+         <!-- ======================================= Pay Loan Start ======================================= -->
+            <div id="Pay-Loan-box" class="box" style="display: none;">
+                <h2>Pay Your Loan</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+
+                <!-- Search section -->
+                <div class="search-section">
+                    <label for="applicationIdInput">Enter Application ID:</label>
+                    <input type="text" id="applicationIdInput" placeholder="Application ID">
+                    <button id="searchLoanBtn">Search</button>
+                </div>
+
+                <!-- Loan details will appear here after search -->
+                <div id="loanDetails" class="loan-details" style="display: none;">
+                    <p><strong>Application ID:</strong> <span id="detailApplicationId"></span></p>
+                    <p><strong>Name:</strong> <span id="detailName"></span></p>
+                    <p><strong>Aadhaar Card:</strong> <span id="detailAadhaar"></span></p>
+                    <p><strong>Payable Amount:</strong> ₹<span id="detailLoanAmount"></span></p>
+
+                    <!-- Payment input -->
+                    <div class="payment-section">
+                        <label for="payAmount">Enter Amount to Pay:</label>
+                        <input type="number" id="payAmount" placeholder="Amount">
+                        <button id="payLoanBtn">Pay</button>
+                    </div>
+                </div>
+
+                <!-- Message area -->
+                <div id="loanMessage"></div>
+            </div>
+<!-- ======================================= Pay Loan End ======================================= -->
+
+
+
+
+            <!-- =======================================Edit Profile Start ======================================= -->
+            <div id="edit-profile" class="box" style="display: none;">
+                <h2>Edit Profile</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <div class="classic-alert">
+                    <h3>🔒 Personal Tip</h3>
+                    <p>Please enter your recipient's <strong>Aadhaar number</strong> carefully to avoid any errors.</p>
+                    <p>If any user is not found and money is deducted, <strong>don’t worry</strong> — the amount will be
+                        credited back to your account within 24 hours.</p>
+                    <p class="safe-line">✔ Stay safe, bank smart!</p>
+                </div>
+                <div id="server-error-editProfile"
+                    style="display:none; background-color: #f8d7da; color: #721c24; padding: 10px; margin: 10px auto; text-align: center; font-weight: bold; border: 1px solid #f5c6cb; border-radius: 5px; max-width: 500px;">
+                    🚨 Try to reach server...
+                </div>
+                <!-- Camera Section -->
+                <div class="form-group">
+                    <label>Take a Picture (Make sure to Enable Allow Camera Access and disable Antivirus) </label><br>
+                    <video id="cameraPreview" width="300" height="200" autoplay style="display: none;"></video>
+                    <canvas id="snapshotCanvas" width="300" height="200" style="display: none;"></canvas>
+                    <h5 id="showthenotesofcamera" style="display: none;">Note : Camera will Automatically turn off after
+                        15 seconds</h5>
+                    <button id="startCameraBtn" class="edit-save-btn">Open Camera</button>
+                    <button id="takeSnapshotBtn" class="edit-save-btn" style="display: none;">Take Picture</button>
+                    <button id="uploadSnapshotBtn" class="edit-save-btn" style="display: none;">Save Taken
+                        Picture</button>
+                </div>
+                <div id="profileUpdateMessage"
+                    style="display:none; text-align:center; background-color:#d4edda; color:#155724; padding:10px; margin-bottom:15px; font-weight:bold; border:1px solid #c3e6cb; border-radius:5px;">
+                </div>
+
+
+                <!-- Profile Picture Section -->
+                <div class="form-group">
+                    <label for="profilePic">Upload Profile Picture</label>
+                    <input type="file" id="profilePic" accept="image/*">
+                    <button id="saveProfilePicBtn" class="edit-save-btn">Save Profile Picture</button>
+                </div>
+
+                <!-- Password Section -->
+                <div class="form-group">
+                    <label for="oldPassword">Old Password</label>
+                    <input type="password" id="oldPassword" placeholder="Enter old password">
+                    <label for="newPassword">New Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter new password">
+                    <button id="savePasswordBtn" class="edit-save-btn">Save Password</button>
+                </div>
+
+                <!-- Mobile Number Section -->
+                <div class="form-group">
+                    <label for="oldMobile">Old Mobile Number</label>
+                    <input type="text" id="oldMobile" placeholder="Enter old mobile number">
+                    <label for="newMobile">New Mobile Number</label>
+                    <input type="text" id="newMobile" placeholder="Enter new mobile number">
+                    <button id="saveMobileBtn" class="edit-save-btn">Save Mobile Number</button>
+                </div>
+                <!-- Email Section -->
+                <div class="form-group">
+                    <label for="oldEmail">Old Email</label>
+                    <input type="email" id="oldEmail" placeholder="Enter old email">
+                    <label for="newEmail">New Email</label>
+                    <input type="email" id="newEmail" placeholder="Enter new email">
+                    <button id="saveEmailBtn" class="edit-save-btn">Save Email</button>
+                </div>
+
+                <!-- Address Section -->
+                <div class="form-group">
+                    <label for="newAddress">Change Address</label>
+                    <textarea id="newAddress" rows="3" placeholder="Enter new address"></textarea>
+                    <button id="saveAddressBtn" class="edit-save-btn">Save Address</button>
+                </div>
+
+                <!-- Take Action Section -->
+                <div class="form-group">
+                    <label for="accountAction">Take Action</label>
+                    <select id="accountAction">
+                        <option value="">-- Select Action --</option>
+                        <option value="Active">Activate Account</option>
+                        <option value="freeze">Freeze Account</option>
+                        <option value="deactivate">Deactivate Account</option>
+                        <option value="delete">Delete Account</option>
+                    </select>
+                    <button id="submitActionBtn" class="edit-save-btn">Submit Action</button>
+                </div>
+
+                <!-- Generate payment password -->
+                <div class="form-group">
+                    <label for="generatepaymentpassword">Generate New Payment Password</label>
+                    <input type="text" id="generatepaymentpassword" placeholder="Type your new payment password here">
+                    <button id="saveGeneratePasswordBtn" class="edit-save-btn">Save payment password</button>
+                </div>
+                <!-- Optional Message Section -->
+                <div id="profileUpdateMessage"></div>
+            </div>
+            <!-- =======================================Edit Profile END ======================================= -->
+
+            <!-- ======================================= Notification  Start ======================================= -->
+            <div id="Notification-box" class="box" style="display: none;">
+                <h2>Notifications</h2>
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <div id="notification-list"></div>
+            </div>
+            <!-- =======================================Notification END ======================================= -->
+        </div>
+    </div>
+
+
+    <!-- ------------------------------Pop html (password otp pop up) -->
+    <div id="otp-popup" class="otp-popup hidden">
+        <div class="otp-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h3>An OTP is sent to you Email Address (Update Password) </h3>
+            <input type="text" id="otpInput" placeholder="Enter OTP">
+            <button id="verifyOtpBtn" class="otp-save-btn">Verify OTP</button>
+            <p id="otpMessage"></p>
+        </div>
+    </div>
+    <!-- ------------------------------Pop html -->
+
+    <!-- ------------------------------Pop1 html (mobile number otp pop up) -->
+    <div id="otp-popup1" class="otp-popup hidden">
+        <div class="otp-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h3>An OTP is sent to you Email Address (Update Mobile Number)</h3>
+            <input type="text" id="otpInput1" placeholder="Enter OTP">
+            <button id="verifyOtpBtn1" class="otp-save-btn">Verify OTP</button>
+            <p id="otpMessage1"></p>
+        </div>
+    </div>
+    <!-- ------------------------------Pop1 html -->
+
+    <!-- ------------------------------Pop2 html (Address otp pop up) -->
+    <div id="otp-popup2" class="otp-popup hidden">
+        <div class="otp-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h3>An OTP is sent to you Email Address (Update Home Address)</h3>
+            <input type="text" id="otpInput2" placeholder="Enter OTP">
+            <button id="verifyOtpBtn2" class="otp-save-btn">Verify OTP</button>
+            <p id="otpMessage2"></p>
+        </div>
+    </div>
+    <!-- ------------------------------Pop2 html -->
+
+    <!-- ------------------------------Pop3 html (email change otp pop up) -->
+    <!-- Background Blur & Popup -->
+    <div id="popup-blur" class="otp-popup hidden">
+        <div class="popup-box">
+            <h2>OTP Verification</h2>
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <label for="oldEmailOtp">Old Email OTP</label>
+            <input type="text" id="oldEmailOtp" placeholder="Enter old email OTP" />
+
+            <label for="newEmailOtp">New Email OTP</label>
+            <input type="text" id="newEmailOtp" placeholder="Enter new email OTP" />
+
+            <div id="otp-message"></div>
+
+            <div class="btn-group">
+                <button class="cancel-btn" onclick="closePopup()">Cancel</button>
+                <button class="submit-btn" onclick="submitOtp()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <!-- ------------------------------Pop3 html -->
+
+    <!-- ------------------------------Pop4 html (Take Action pop up) -->
+    <div id="otp-popup4" class="otp-popup hidden">
+        <div class="otp-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h3>An OTP is sent to you Email Address (Action Take Request) </h3>
+            <input type="text" id="otpInput4" placeholder="Enter OTP">
+            <button id="verifyOtpBtn4" class="otp-save-btn">Verify OTP</button>
+            <p id="otpMessage4"></p>
+        </div>
+    </div>
+    <!-- ------------------------------Pop4 html -->
+
+    <!-- ------------------------------Pop6 html (Generate password otp pop up) -->
+    <div id="generatepaymentpasswordpopup" class="otp-popup hidden">
+        <div class="otp-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h3>An OTP is sent to you Email Address (Generate Payment Password) </h3>
+            <input type="text" id="otpInput-generatepaymentpassword" placeholder="Enter OTP">
+            <button id="verifyOtpBtn-generatepaymentpassword" class="otp-save-btn">Verify OTP</button>
+            <p id="otpMessage-generatepaymentpassword"></p>
+        </div>
+    </div>
+    <!-- ------------------------------Pop6 html -->
+
+    <!-- 📦 Popup HTML (place it at the bottom of your HTML body) -->
+    <div id="paymentWarningPopup" class="popup-wrapper">
+        <div class="popup-box">
+            <p class="popup-message">
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                You have not generated Payment password yet!<br />
+                Please generate the payment password and do the transaction.
+            </p>
+            <button onclick="closePopofNotes()">OK</button>
+        </div>
+    </div>
+    <!-- ----------------------------------------- -->
+
+
+    <!-- Payment add Money Popup -->
+    <div id="payment-popup" class="popup-container">
+        <div class="popup-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h2>Confirm Your Payment</h2>
+            <div class="otp-section">
+                <p>An OTP has been sent to your registered email. Please enter it below:</p>
+                <input type="text" id="payment-otp" placeholder="Enter 6-digit OTP" maxlength="6" />
+            </div>
+            <!-- Add this inside .popup-box, preferably just below the OTP input section -->
+            <div id="status-gif-container" style="text-align:center; margin-top:10px;">
+                <img id="status-gif" src="assets/images/loading.gif" alt="Loading..."
+                    style="max-width: 80px; display: none;" />
+            </div>
+            <p id="processing-status" style="text-align:center;"></p>
+            <!-- Optional, if you still want error text like "Incorrect OTP" -->
+            <div class="popup-buttons">
+                <button onclick="submitPaymentOtp()">Verify & Proceed</button>
+                <button onclick="closePaymentPopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!-- ----------------------------------- -->
+
+
+
+    <!-- send Payment Popup -->
+    <div id="sendmoney-popup" class="sendmoney-popup-container">
+        <div class="sendmoney-popup-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h2>Confirm Your Payment</h2>
+            <div class="sendmoney-otp-section">
+                <p>An OTP has been sent to your registered email. Please enter it below:</p>
+                <input type="text" id="sendmoney-payment-otp" placeholder="Enter 6-digit OTP" maxlength="6" />
+            </div>
+            <!-- Add this inside .sendmoney-popup-box, preferably just below the OTP input section -->
+            <div id="sendmoney-status-gif-container" style="text-align:center; margin-top:10px;">
+                <img id="sendmoney-status-gif" src="assets/images/loading.gif" alt="Loading..."
+                    style="max-width: 80px; display: none;" />
+            </div>
+            <p id="sendmoney-processing-status" style="text-align:center;"></p>
+            <!-- Optional, if you still want error text like "Incorrect OTP" -->
+            <div class="sendmoney-popup-buttons">
+                <button onclick="submitSendMoneyOtpofUser()">Verify & Proceed</button>
+                <button onclick="closeSendMoneyPopup()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+
+        <!-- Pay Loan Popup -->
+        <div id="pay-loan-popup" class="sendmoney-popup-container">
+            <div class="sendmoney-popup-box">
+                <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+                <h2>Confirm Your Payment</h2>
+                <div class="sendmoney-otp-section">
+                    <p>An OTP has been sent to your registered email. Please enter it below:</p>
+                    <input type="text" id="payloan-payment-otp" placeholder="Enter 6-digit OTP" maxlength="6" />
+                </div>
+                <!-- Add this inside .sendmoney-popup-box, preferably just below the OTP input section -->
+                <div id="sendmoney-status-gif-container" style="text-align:center; margin-top:10px;">
+                    <img id="sendmoney-status-gif" src="assets/images/loading.gif" alt="Loading..."
+                        style="max-width: 80px; display: none;" />
+                </div>
+                <p id="payloan-processing-status" style="text-align:center;"></p>
+                <!-- Optional, if you still want error text like "Incorrect OTP" -->
+                <div class="sendmoney-popup-buttons">
+                    <button onclick="submitSendMoneyOtp()">Verify & Proceed</button>
+                    <button onclick="closeSendMoneyPopupofLoanPayment()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    
+
+
+
+<!-- Background blur overlay -->
+<div id="blur-background" style="
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(5px);
+    z-index: 999;
+"></div>
+
+<!-- Popup for Account Deletion Process -->
+<div id="delete-account-popup" class="delete-popup-box" style="
+    display: none;
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    z-index: 1000;
+">
+    <div class="delete-popup-content">
+        <h3>DELETING YOUR BANK ACCOUNT</h3>
+        <ul id="delete-steps-list">
+            <li><span>1. Gathering Personal Information</span><span id="delete-step-1-status">Not started</span></li>
+            <li><span>2. Checking Pending Loan</span><span id="delete-step-2-status">Not started</span></li>
+            <li><span>3. Gathering Transaction History</span><span id="delete-step-3-status">Not started</span></li>
+            <li><span>4. Gathering Notifications Database</span><span id="delete-step-4-status">Not started</span></li>
+            <li><span>5. Deleting Your Account</span><span id="delete-step-5-status">Not started</span></li>
+        </ul>
+        <button id="delete-close-btn">Close</button>
+    </div>
+</div>
+
+
+
+
+    <script src="assets/js/logged js/notification.js"></script>
+    <script src="assets/js/logged js/payment.js"></script>
+    <script src="assets/js/login js/admin.js"></script>
+    <script src="assets/js/logged js/editprofile.js"></script>
+    <script src="assets/js/logged js/pop.js"></script>
+    <script src="assets/js/logged js/dynamic1.js"></script>
+    <script src="assets/js/logged js/loan.js"></script>
+
+</body>
+
+</html>

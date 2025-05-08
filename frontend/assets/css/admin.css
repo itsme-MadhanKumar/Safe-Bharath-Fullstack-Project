@@ -1,0 +1,1339 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(to right, #007bff, #00d4ff);
+}
+
+/* Wrapper */
+.wrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 240px;
+    background: #fff;
+    box-shadow: 3px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    border-radius: 0 12px 12px 0;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+    text-align: center;
+}
+
+.sidebar button {
+    width: 80%;
+    padding: 12px;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.sidebar button:hover {
+    background: linear-gradient(135deg, #0056b3, #0095ff);
+    transform: scale(1.05);
+}
+
+/* Content Area */
+.content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.box h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-radius: 0;
+        display: flex;
+        overflow-x: auto;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+    }
+
+    .sidebar ul li {
+        margin: 0;
+    }
+
+    .sidebar button {
+        width: auto;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .content {
+        padding: 20px;
+    }
+}
+
+#logout-btn {
+    background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    box-shadow: 0px 4px 8px rgba(255, 0, 0, 0.3);
+}
+
+#logout-btn:hover {
+    background: linear-gradient(135deg, #cc0000, #b30000);
+}
+
+
+
+
+/* ------------------------------------------------------------------------profile pic css */
+.profile-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.profile-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 16px;
+    text-align: center;
+}
+/* ------------------------------------------------------------------------------------ */
+
+
+/* -----------------------------------------------------------------edit profile css */
+.section {
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  input, textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
+  
+  .btn {
+    background-color: #1e40af;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #1d4ed8;
+  }
+  #saveProfileBtn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+  #profileUpdateMessage {
+    margin-top: 10px;
+  }
+  #saveProfileBtn:hover {
+    background-color: #2980b9;
+}
+/* ---------------------------------------------------------------------- */
+/* General button style */
+.edit-save-btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color:#3498db; /* Green */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.edit-save-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Optional: spacing between buttons */
+.edit-profile-section .form-group {
+    margin-bottom: 20px;
+}
+
+/* ---------------------------------------------------------------- pop css*/
+.otp-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.otp-box {
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.4s ease;
+}
+
+.otp-box h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.hidden {
+    display: none;
+}
+
+#otpMessage {
+    margin-top: 12px;
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+.otp-save-btn {
+    margin-top: 20px;
+    padding: 12px 28px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
+}
+
+.otp-save-btn:hover {
+    background-color: #2980b9;
+    box-shadow: 0 6px 18px rgba(41, 128, 185, 0.5);
+}
+
+/* Optional: spacing between input fields in edit-profile-section */
+.edit-profile-section .form-group {
+    margin-bottom: 22px;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ---------------------------------------------------------------- profile adjusmtment css*/
+#profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    margin-bottom: -2px;
+}
+
+#profile-pic {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background-color: #f0f0f0; /* light gray when no image */
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #aaa;
+}
+
+#user-name {
+    margin-top: 10px;
+    font-size: 18px;
+    color: rgb(14, 10, 10);
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------responsive css */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .wrapper {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        overflow-x: auto;
+        border-radius: 0;
+        padding: 10px 0;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .sidebar ul {
+        display: flex;
+        width: 100%;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin: 0 10px;
+        flex-shrink: 0;
+    }
+
+    .sidebar button {
+        font-size: 13px;
+        padding: 8px 12px;
+        border-radius: 20px;
+        white-space: nowrap;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .box h2 {
+        font-size: 20px;
+    }
+
+    .box p {
+        font-size: 14px;
+    }
+
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .profile-name {
+        font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .btn,
+    #saveProfileBtn {
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .sidebar button {
+        font-size: 12px;
+        padding: 6px 10px;
+    }
+
+    .box h2 {
+        font-size: 18px;
+    }
+
+    .box p {
+        font-size: 13px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+}
+
+
+/* ------------------------------------------------------------------email otp pop up css */
+#popup-blur {
+    display: none; /* Hide popup by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .popup-box {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+/* Popup Blur Background */
+#popup-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Popup Box */
+  .popup-box {
+    background: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .popup-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  /* Input Fields */
+  .popup-box label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    text-align: left;
+    color: #444;
+  }
+  
+  .popup-box input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .popup-box input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Message Box */
+  #otp-message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: red;
+  }
+  
+  /* Button Group */
+  .btn-group {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  
+  .cancel-btn,
+  .submit-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .cancel-btn 
+  {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .submit-btn {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .cancel-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  .submit-btn:hover {
+    background-color: #218838;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
+/* ------------------------------------------------------------------take action camera css  cs00s */
+#faceVerificationPopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    padding: 20px 30px;
+    z-index: 9999;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  #faceVerificationPopup h3 {
+    margin-bottom: 15px;
+    color: #1e90ff;
+    font-size: 20px;
+  }
+  
+  #faceVerificationPopup video {
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  #faceVerificationPopup button {
+    background-color: #1e90ff;
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  
+  #faceVerificationPopup button:hover {
+    background-color: #0f72d1;
+  }
+  
+  #faceVerificationPopup p {
+    margin-top: 12px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  #faceVerificationPopup button {
+    margin: 5px;
+  }
+  
+  #faceVerificationPopup .cancel-btn {
+    margin-top: 10px;
+    background-color: #ff4d4d;
+    color: white;
+    padding: 8px 8px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  #faceVerificationPopup .cancel-btn:hover {
+    background-color: #e84343;
+  }
+  
+  
+
+/* ------------------------------------------------------------------Dashboard Section css  cs00s */
+#dashboard-section {
+    background-color: #f8f9fa;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.dashboard-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.dashboard-container h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.dashboard-item {
+    flex: 0 0 48%;
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-item p {
+    font-size: 16px;
+    color: #555;
+}
+
+.dashboard-item strong {
+    color: #333;
+}
+
+.dashboard-item span {
+    font-weight: bold;
+    color: #007bff;
+}
+
+@media (max-width: 768px) {
+    .dashboard-row {
+        flex-direction: column;
+    }
+
+    .dashboard-item {
+        flex: 0 0 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* ------------------------------------------------------------------Dashboard insice profile session css  cs00s */
+#profile-container-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    margin-bottom: -2px;
+}
+
+#profile-pic-dashboard {
+    border-radius: 40%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    background-color: #f0f0f0; /* light gray when no image */
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    color: #aaa;
+}
+
+#user-name-dashboard {
+    margin-top: 10px;
+    font-size: 18px;
+    color: rgb(14, 10, 10);
+    text-align: center;
+}
+
+
+
+/* ------------------------------------------------------------------Dashboard sliding things */
+.dashboard-marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 0;
+    background: #f0f0f0;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 20px;
+}
+
+.dashboard-marquee p {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 18s linear infinite;
+    font-weight: bold;
+    color: #333;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+}
+/* ------------------------------------------------------------------Add money elements css */
+input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+#addmoney-submit-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#addmoney-submit-btn:hover 
+{
+    background-color: #0056b3;
+}
+
+
+/* ------------------------------------------------------------------send buttomn money elements css */
+input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+#sendmoney-submit-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#sendmoney-submit-btn:hover 
+{
+  background-color: #0056b3;
+}
+
+
+
+/* ------------------------------------------------------------------Add money - edit profile button css */
+.small-button {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 1px 5px;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.small-button:hover {
+    background-color: #45a049;
+}
+
+
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+} 
+
+
+
+
+/* ------------------------------------------------------------------date time responsive and  css */
+.datetime-container {
+    font-size: 14px;
+    font-weight: bold;
+    color: #3f08f4;
+}
+
+/* Responsive */
+ @media (max-width: 768px) {
+    .top-bar {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .datetime-container {
+        font-size: 13px;
+    }
+}
+
+
+/* ------------------------------------------------------------------add money notes   css */
+.security-alert-box {
+    display: flex;
+    align-items: flex-start;
+    background-color: #fff8e1;
+    border: 1px solid #ffc107;
+    border-left: 5px solid #ff9800;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .alert-icon {
+    font-size: 28px;
+    margin-right: 15px;
+    color: #ff9800;
+    flex-shrink: 0;
+  }
+  
+  .alert-message {
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .alert-message .highlight {
+    color: #d84315;
+    font-weight: bold;
+  }
+  
+
+/* ------------------------------------------------------------------send money notes 2   css */
+  .fancy-alert-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    border-left: 6px solid #2196f3;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    margin: 30px 0;
+    transition: all 0.3s ease;
+  }
+  
+  .fancy-alert-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .fancy-icon {
+    font-size: 38px;
+    color: #2196f3;
+    margin-top: 6px;
+  }
+  
+  .fancy-content h3 {
+    margin: 0 0 10px;
+    font-size: 20px;
+    color: #0d47a1;
+  }
+  
+  .fancy-content p {
+    margin: 6px 0;
+    font-size: 15px;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .fancy-footer {
+    margin-top: 10px;
+    font-weight: 600;
+    color: #2e7d32;
+    font-size: 14px;
+  }
+  
+
+/* ------------------------------------------------------------------edit profile  notes 1   css */
+  .classic-alert {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 18px 22px;
+    border-left: 5px solid #ffc107;
+    border-radius: 6px;
+    margin: 20px 0;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .classic-alert h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #856404;
+  }
+  
+  .classic-alert p {
+    margin: 8px 0;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  
+  .classic-alert .safe-line {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+  
+  
+/* ------------------------------------------------------------------ add money notes 1 css */
+  .custom-alert {
+    display: flex;
+    align-items: center;
+    background-color: #f0f4f7;  /* Soft blue background */
+    color: #333;  /* Dark text color */
+    border-left: 5px solid #ff6f61;  /* Bold left border to highlight */
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.alert-icon {
+    font-size: 28px;
+    margin-right: 15px;
+    color: #ff6f61;  /* Matching icon color with the border */
+}
+
+.alert-message {
+    display: flex;
+    flex-direction: column;
+}
+
+.alert-message strong {
+    font-size: 16px;
+    color: #333;
+}
+
+.highlight {
+    color: #28a745;  /* Green for emphasis */
+    font-weight: bold;
+}
+
+#server-online-dashboard {
+    display: none;
+    background-color: #d4edda; /* Light green for success */
+    color: #155724; /* Dark green text */
+    padding: 10px;
+    margin: 10px auto;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    max-width: 500px;
+}
+
+
+
+/* ------------------------------------------------------------------ transaction history css */
+#profile-management {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+  overflow-x: auto; /* fallback scroll if needed */
+}
+
+#profile-management h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+#transactionsTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+#transactionsTable th,
+#transactionsTable td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+#transactionsTable th {
+  background-color: #4cafaf;
+  color: white;
+}
+
+#transactionsTable td {
+  background-color: #f9f9f9;
+}
+
+/* ✅ Responsive Styles */
+@media screen and (max-width: 768px) {
+  #transactionsTable, 
+  #transactionsTable thead, 
+  #transactionsTable tbody, 
+  #transactionsTable th, 
+  #transactionsTable td, 
+  #transactionsTable tr {
+    display: block;
+    width: 100%;
+  }
+
+  #transactionsTable thead {
+    display: none;
+  }
+
+  #transactionsTable tr {
+    margin-bottom: 15px;
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    border-radius: 6px;
+    padding: 10px;
+  }
+
+  #transactionsTable td {
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  #transactionsTable td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-weight: bold;
+    color: #555;
+  }
+}
+
+/* =-------------------------------------------------------------dashboard logo image css */
+.bank-logo {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto 10px auto;
+}
+
+
+/* -----------------------------------------------------------pop up of not payment password Generated */
+.popup-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4);
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.popup-message {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.popup-box button {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px 20px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.popup-box button:hover {
+  background-color: #1976d2;
+}
+.popup-box button {
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+/* BACKDROP */
+.popup-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+/* POPUP BOX */
+.popup-box {
+  background: #ffffff;
+  padding: 30px 35px;
+  border-radius: 20px;
+  width: 420px;
+  max-width: 90%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.3s ease;
+}
+
+.popup-box h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 22px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* CONDITIONS LIST */
+.conditions p {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #555;
+}
+.conditions ul {
+  padding-left: 20px;
+  color: #333;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.conditions ul li {
+  margin-bottom: 8px;
+}
+
+/* OTP INPUT */
+.otp-section {
+  margin-top: 25px;
+}
+.otp-section input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  margin-top: 8px;
+  transition: border-color 0.3s;
+}
+.otp-section input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* STATUS */
+.processing-msg {
+  margin-top: 18px;
+  font-weight: 600;
+  font-size: 16px;
+  text-align: center;
+  min-height: 24px;
+}
+
+/* BUTTONS */
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.popup-buttons button {
+  flex: 1;
+  margin: 0 5px;
+  padding: 12px 0;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.popup-buttons button:first-child {
+  background: #007bff;
+  color: #fff;
+}
+.popup-buttons button:first-child:hover {
+  background: #0056c1;
+}
+
+.popup-buttons button:last-child {
+  background: #e0e0e0;
+  color: #333;
+}
+.popup-buttons button:last-child:hover {
+  background: #ccc;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+@keyframes slideUp {
+  from {transform: translateY(20px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

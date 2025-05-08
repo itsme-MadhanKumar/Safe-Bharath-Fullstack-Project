@@ -1,0 +1,317 @@
+/* --------------------------------------------------------------------------------------------login page css desing  */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Body Styling */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #007bff, #00d4ff);
+}
+
+/* Container */
+.container 
+{
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Login Box */
+.login-box 
+{
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Heading */
+h2 
+{
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Subtext */
+p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* Input Group */
+.input-group 
+{
+    margin-bottom: 15px;
+}
+
+.input-group input 
+{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group input:focus 
+{
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 🎨 Attractive Buttons */
+.btn 
+{
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #007bff, #00d4ff);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.btn:hover 
+{
+    background: linear-gradient(135deg, #0056b3, #0095ff);
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.6);
+}
+
+/* Register Text */
+.register-text 
+{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* 🎨 Register Button (More Stylish) */
+.register-btn 
+{
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 2px solid #007bff;
+    border-radius: 25px;
+    color: #007bff;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.register-btn:hover 
+{
+    background: #007bff;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0px 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    body {
+        padding: 0 15px;
+    }
+
+    .login-box {
+        padding: 20px;
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    .btn {
+        padding: 10px;
+        font-size: 15px;
+    }
+
+    .register-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
+
+/* ----------------------------------------------------------------------register  page parallel view of box */
+.form-group 
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input-group {
+    flex: 1 1 calc(50% - 10px);
+}
+
+@media (max-width: 480px) {
+    .input-group {
+        flex: 1 1 100%;
+    }
+}
+
+/* ---------------------------------------------------------------------------Red and Green Color of result css */
+.message {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+.message.success {
+    color: green;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+.message.error {
+    color: red;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+.message {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+.otp-message {
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: none; /* Initially hidden */
+}
+
+/* Success message (Green) */
+.otp-message.success {
+    color: green;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    display: block;
+}
+
+/* Error message (Red) */
+.otp-message.error {
+    color: red;
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    display: block;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+/* SERVER STATUS CSS*/
+.server-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.server-status span {
+    font-size: 14px;
+    color: #333;
+    margin-right: 10px;
+    font-weight: 500;
+}
+
+.bulb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: red; /* Default: Server Off */
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+.green {
+    background-color: green;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+    animation: blink 1s infinite;
+}
+.red {
+    background-color: red;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+    animation: none; /* No blinking */
+}
+/* --------------------------------------------------------------------rain effect */
+/* Rain Effect */
+.rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+    display: none;
+}
+
+.rain-drop {
+    position: absolute;
+    width: 3px; /* Increased width */
+    height: 20px; /* Increased height */
+    background: rgba(255, 255, 255, 0.8); /* Brighter drops */
+    opacity: 0.8;
+    border-radius: 50%;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100vh);
+    }
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+
+/* ------------------------------------------------------------index page logo css */
+.bank-logo {
+    width: 80px;
+    height: 80px;
+    display: block;
+    margin: 0 auto 10px auto;
+  }

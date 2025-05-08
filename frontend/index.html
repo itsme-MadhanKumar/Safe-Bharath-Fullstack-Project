@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Bank System</title>
+    <link rel="stylesheet" href="assets/css/Login.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <img src="assets/images/SafeBharat Bank Logo Design.png" alt="SafeBharat Bank Logo" class="bank-logo">
+            <h2>Welcome to SafeBharat</h2>  
+            <p>Login to access your account</p>
+            <div class="server-status">
+                <span>Server Status:</span>
+                <div id="server-indicator" class="bulb red"></div>
+            </div>
+            <p id="message-of-server-status" style="color: red; font-weight: bold;"></p>
+            <form id="login-form" >
+                <div class="input-group">
+                    <input type="text" id="username" name="aadhar" required placeholder="Aadhar number">
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p id="login-message" class="message"></p>
+            </form>
+            <p class="register-text">New here? <a href="register.html" class="register-btn">Register</a></p>
+            <p id="message-of-server-status-render" style="color: red; font-weight: bold;"></p>
+        </div>
+    </div>
+    <script src="assets/js/login js/submitForm.js"></script>
+    <script src="assets/js/login js/serverstatus.js"></script>
+    <div class="rain-container" id="rain-container"></div>
+</body>
+</html>

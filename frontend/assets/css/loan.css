@@ -1,0 +1,231 @@
+
+   /* ---------------------------------------------------------------------------------------- */
+   .loan-container {
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .loan-container h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #003366;
+    margin-bottom: 30px;
+  }
+  
+  .loan-type-selector {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .loan-type-selector button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .loan-type-selector button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .loan-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  
+  .loan-form h3 {
+    grid-column: span 2;
+    text-align: center;
+    color: #004080;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  .loan-form input {
+    padding: 12px 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+    transition: border-color 0.3s ease;
+    background-color: #fdfdfd;
+  }
+  
+  .loan-form input:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #f0f8ff;
+  }
+  
+  /* Centered Submit Button Section */
+  .loan-submit-center 
+  {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .loan-submit-btn {
+    padding: 14px 50px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(40, 167, 69, 0.3);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .loan-submit-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+
+  
+/* =========================================================================Message box of Apply loan */
+  .pulse-alert-box-abroad 
+  {
+    background-color: #ffffff;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+  }
+  .pulse-alert-box-ug
+  {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .pulse-alert-box-pg
+  {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  .pulse-alert-box-abroad
+  {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+   .pulse-alert-box-ug {
+    background-color: #f2f2f2;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+  }
+  .pulse-alert-box-pg {
+    background-color: #f2f2f2;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+  }
+  .message-loan-abroad {
+    background-color: #f2f2f2;
+    color: #ffffff;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+  }
+.pulse-alert-box-ug {
+    background-color: #ebe3e3;
+    color: #000000;
+    padding: 20px;
+    font-weight: bold;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+    animation: pulse 1.5s infinite;
+}
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(255, 0, 0, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+    }
+  }
+  /* ===================================================================================== */
+  .loan-status-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .loan-box {
+    border: 2px solid #4CAF50;
+    border-radius: 15px;
+    padding: 20px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .loan-box-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2e7d32;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+  }
+  
+  .loan-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 16px;
+  }
+  
+  .loan-item {
+    background: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+    flex: 1 1 200px;
+  }
+  
+
+  
